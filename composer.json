@@ -1,0 +1,26 @@
+{
+  "name": "vendor_name/too-long-to-read",
+  "description": "description",
+  "minimum-stability": "stable",
+  "homepage": "https://www.toolongtoread.thomasremy.fr",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas REMY",
+      "email": "contact.t.remy777@gmail.com"
+    },
+    {
+      "name": "Andrea DE ARAUJO",
+      "email": "andreadearaujo1998@gmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.5",
+    "google/apiclient": "^2.13"
+  },
+  "autoload": {
+    "psr-4": {
+
+    }
+  }
+}
