@@ -1,0 +1,34 @@
+@startuml "WEB_TooLongToRead_2023_UML"
+
+skinparam linetype ortho
+
+set namespaceSeparator .
+
+title Too Long To Read - UML
+
+package Controller {
+
+}
+
+package Model {
+    package Wrappers {
+        class Goodreads {
+
+        }
+        class OpenLibrary {
+
+        }
+        class LibraryThing {
+
+        }
+        class Nasa {
+
+        }
+    }
+}
+
+package View {
+
+}
+
+@enduml
