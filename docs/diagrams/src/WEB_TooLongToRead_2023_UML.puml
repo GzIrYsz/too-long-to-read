@@ -6,29 +6,37 @@ set namespaceSeparator .
 
 title Too Long To Read - UML
 
-package Controller {
+namespace Controller {
 
 }
 
-package Model {
-    package Wrappers {
-        class Goodreads {
+namespace Model {
+    namespace Wrapper {
+        abstract class AbstractWrapper {
+            -httpClient: GuzzleHttp\Client
+            -baseUri: string
+        }
+
+        class Goodreads extends AbstractWrapper {
 
         }
-        class OpenLibrary {
+        class OpenLibrary extends AbstractWrapper {
 
         }
-        class LibraryThing {
-
+        class LibraryThing extends AbstractWrapper {
         }
-        class Nasa {
+        class Nasa extends AbstractWrapper {
+            -token: string
 
+            +getApod(string date, string startDate, string endDate): GuzzleHttp\Promise\PromiseInterface
         }
     }
 }
 
-package View {
-
+namespace View {
+    class View {
+        +render()
+    }
 }
 
 @enduml
