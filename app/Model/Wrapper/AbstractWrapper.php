@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Model\Wrapper;
 
-require '../../../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use GuzzleHttp\Client;
 
