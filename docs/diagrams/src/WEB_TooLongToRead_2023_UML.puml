@@ -26,6 +26,7 @@ namespace Model {
         class LibraryThing extends AbstractWrapper {
         }
         class Nasa extends AbstractWrapper {
+            -httpClient: GuzzleHttp\Client
             -token: string
 
             +getApod(string date, string startDate, string endDate): GuzzleHttp\Promise\PromiseInterface
