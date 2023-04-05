@@ -5,7 +5,6 @@ namespace Model\Wrapper;
 
 require 'vendor/autoload.php';
 
-use Google\Service\PeopleService\Resource\People;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 
