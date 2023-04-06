@@ -18,7 +18,7 @@ class Nasa extends AbstractWrapper {
         $this->token = $token;
     }
 
-    public function getApod(string $date = null, string $startDate = null, string $endDate = null): PromiseInterface {
+    public function getApod(): PromiseInterface {
         return $this->httpClient->getAsync('/planetary/apod', ['query'=>['api_key'=>$this->token]]);
     }
 
