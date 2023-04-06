@@ -20,7 +20,10 @@
   },
   "autoload": {
     "psr-4": {
-
+      "Model\\": "app/Model/"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
   }
 }
