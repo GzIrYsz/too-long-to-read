@@ -5,7 +5,7 @@ namespace Model\Wrapper;
 
 require 'vendor/autoload.php';
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Promise\PromiseInterface;
 
 class OpenLibrary extends AbstractWrapper {
@@ -35,5 +35,21 @@ class OpenLibrary extends AbstractWrapper {
 
     public function getWorksBySubject(string $subject): PromiseInterface {
         return $this->getHttpClient()->getAsync('/subjects/' . urlencode($subject) . '.json');
+    }
+
+    public function search(string $q): PromiseInterface {
+        return $this->getHttpClient()->getAsync('/search.json', ['query'=>['q'=>urlencode($q)]]);
+    }
+
+    public function searchByTitle(string $title): PromiseInterface {
+        return $this->getHttpClient()->getAsync('/search.json', ['query'=>['title'=>urlencode($title)]]);
+    }
+
+    public function searchByAuthor(string $author): PromiseInterface {
+        return $this->getHttpClient()->getAsync('/search.json', ['query'=>['author'=>urlencode($author)]]);
+    }
+
+    public function searchForAuthor(string $q): PromiseInterface {
+        return $this->getHttpClient()->getAsync('/search/authors.json', ['query'=>['q'=>urlencode($q)]]);
     }
 }
