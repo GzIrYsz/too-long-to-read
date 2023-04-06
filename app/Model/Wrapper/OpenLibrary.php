@@ -5,12 +5,18 @@ namespace Model\Wrapper;
 
 require 'vendor/autoload.php';
 
-use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 
 class OpenLibrary extends AbstractWrapper {
+    private Client $coversHttpClient;
+    private const COVER_SIZE_SMALL = 'S';
+    private const COVER_SIZE_MEDIUM = 'M';
+    private const COVER_SIZE_LARGE = 'L';
+
     public function __construct() {
         parent::__construct('https://openlibrary.org');
+        $this->coversHttpClient = new Client(['base_uri'=>'https://covers.openlibrary.org']);
     }
 
     public function getWorkByOLID(string $olid): PromiseInterface {
@@ -51,5 +57,21 @@ class OpenLibrary extends AbstractWrapper {
 
     public function searchForAuthor(string $q): PromiseInterface {
         return $this->getHttpClient()->getAsync('/search/authors.json', ['query'=>['q'=>urlencode($q)]]);
+    }
+
+    public function getBookCoverByID(string $id, string $size = OpenLibrary::COVER_SIZE_MEDIUM): PromiseInterface {
+        return $this->coversHttpClient->getAsync('/b/id/' . $id . '-' . $size . '.jpg');
+    }
+
+    public function getBookCoverByOLID(string $olid, string $size = OpenLibrary::COVER_SIZE_MEDIUM): PromiseInterface {
+        return $this->coversHttpClient->getAsync('/b/olid/' . $olid . '-' . $size . '.jpg');
+    }
+
+    public function getBookCoverByISBN(string $isbn, string $size = OpenLibrary::COVER_SIZE_MEDIUM): PromiseInterface {
+        return $this->coversHttpClient->getAsync('/b/olid/' . $isbn . '-' . $size . '.jpg');
+    }
+
+    public function getAuthorCoverByOLID(string $olid, string $size = OpenLibrary::COVER_SIZE_MEDIUM): PromiseInterface {
+        return $this->coversHttpClient->getAsync('/a/olid/' . $olid . '-' . $size . '.jpg');
     }
 }
