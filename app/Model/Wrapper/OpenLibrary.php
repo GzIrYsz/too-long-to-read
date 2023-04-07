@@ -10,9 +10,9 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 class OpenLibrary extends AbstractWrapper {
     private Client $coversHttpClient;
-    private const COVER_SIZE_SMALL = 'S';
-    private const COVER_SIZE_MEDIUM = 'M';
-    private const COVER_SIZE_LARGE = 'L';
+    public const COVER_SIZE_SMALL = 'S';
+    public const COVER_SIZE_MEDIUM = 'M';
+    public const COVER_SIZE_LARGE = 'L';
 
     public function __construct() {
         parent::__construct('https://openlibrary.org');
