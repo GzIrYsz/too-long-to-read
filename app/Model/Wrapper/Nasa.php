@@ -65,6 +65,6 @@ class Nasa extends AbstractWrapper {
      * @return PromiseInterface The promise corresponding to the web request.
      */
     public function getNApod(int $n): PromiseInterface {
-        return $this->httpClient->getAsync('/planetary/apod', ['query'=>['api_key'=>$this->token, 'count'=>strval($n)]]);
+        return $this->httpClient->getAsync('/planetary/apod', ['query'=>['api_key'=>$this->token, 'count'=>(string) $n]]);
     }
 }

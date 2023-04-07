@@ -87,7 +87,7 @@ class OpenLibrary extends AbstractWrapper {
      * @return PromiseInterface The promise corresponding to the web request.
      */
     public function getAuthorsWorks(string $authorsOLID, int $limit = 50): PromiseInterface {
-        return $this->getHttpClient()->requestAsync('GET', '/authors/' . $authorsOLID . '/works.json', ['query'=>['limit'=>strval($limit)]]);
+        return $this->getHttpClient()->requestAsync('GET', '/authors/' . $authorsOLID . '/works.json', ['query'=>['limit'=>(string) $limit]]);
     }
 
     /**
