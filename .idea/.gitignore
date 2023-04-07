@@ -8,3 +8,7 @@
 /dataSources.local.xml
 # Discord plugin
 /discord.xml
+# Deployement configuration
+/deployment.xml
+/sshConfigs.xml
+/webServers.xml
