@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-$ol = new \Model\Wrapper\OpenLibrary();
+$ol = new \App\Model\Wrapper\OpenLibrary();
 
 $response = $ol->getWorksBySubject("drama");
 $response->then(function (\Psr\Http\Message\ResponseInterface $res) {
