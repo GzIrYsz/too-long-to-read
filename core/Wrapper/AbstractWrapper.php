@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Model\Wrapper;
+namespace Core\Wrapper;
 
 require 'vendor/autoload.php';
 

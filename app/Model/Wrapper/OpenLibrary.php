@@ -5,6 +5,7 @@ namespace App\Model\Wrapper;
 
 require 'vendor/autoload.php';
 
+use Core\Wrapper\AbstractWrapper;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 

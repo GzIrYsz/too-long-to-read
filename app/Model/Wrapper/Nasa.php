@@ -5,8 +5,9 @@ namespace App\Model\Wrapper;
 
 require 'vendor/autoload.php';
 
-use GuzzleHttp\Promise\PromiseInterface;
+use Core\Wrapper\AbstractWrapper;
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\PromiseInterface;
 
 /**
  * This class wraps the Nasa web API.
