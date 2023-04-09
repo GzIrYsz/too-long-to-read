@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Model\Wrapper;
 
-require 'vendor/autoload.php';
-
 use Core\Wrapper\AbstractWrapper;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;

@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Core\Wrapper;
 
-require 'vendor/autoload.php';
-
 use GuzzleHttp\Client;
 
 /**
