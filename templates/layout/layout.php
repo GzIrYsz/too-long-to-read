@@ -8,6 +8,7 @@
     <meta name="keywords" content="<?= $keywords ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?= $title ?> | Too Long To Read</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
 </head>
 <body>
     <header>
