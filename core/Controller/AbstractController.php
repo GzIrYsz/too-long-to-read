@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace Core\Controller;
 
-use Psr\Http\Message\RequestInterface as Request;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Container\ContainerInterface;
 
 abstract class AbstractController {
     private const TEMPLATES_DIR = __DIR__ . '/../../templates/';
