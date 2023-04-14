@@ -17,7 +17,8 @@
   "require": {
     "guzzlehttp/guzzle": "^7.5",
     "google/apiclient": "^2.13",
-    "slim/slim": "^4.11"
+    "slim/slim": "^4.11",
+    "vlucas/phpdotenv": "^5.5"
   },
   "autoload": {
     "psr-4": {
