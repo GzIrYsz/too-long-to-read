@@ -5,6 +5,9 @@ use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 $app = AppFactory::create();
 
 $app->addErrorMiddleware(true, false, false);
@@ -19,6 +22,6 @@ $app->get('/recommendations', \App\Controller\RecommendationsController::class .
 
 $app->get('/team', \App\Controller\TeamController::class . ':index');
 
-$app->get('/book/{isbn:[0-9]{10,13}}', \App\Controller\BookController::class . ':index');
+$app->get('/book/{isbn}', \App\Controller\BookController::class . ':index');
 
 $app->run();

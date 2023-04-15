@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Book;
 
+use Google\Service\Books\Volume;
+
 class Librarian {
     private AbstractBookBuilder $builder;
 
@@ -10,7 +12,8 @@ class Librarian {
         $this->builder = $builder;
     }
 
-    public function makeBook(): Book {
+    public function makeBook(Volume $volume): Book {
+        $this->builder->setVolume($volume);
         return $this->builder->reset()
             ->makeTitle()
             ->makeSummary()

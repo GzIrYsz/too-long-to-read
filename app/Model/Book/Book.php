@@ -6,7 +6,7 @@ namespace App\Model\Book;
 class Book {
     private string $title;
     private string $summary;
-    private string $author;
+    private array $authors;
     private string $editor;
     private int $pageCount;
     private string $releaseDate;
@@ -24,10 +24,10 @@ class Book {
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      */
-    public function setTitle(string $title): void {
-        $this->title = $title;
+    public function setTitle(?string $title): void {
+        $this->title = $title ?? '';
     }
 
     /**
@@ -38,24 +38,31 @@ class Book {
     }
 
     /**
-     * @param string $summary
+     * @param string|null $summary
      */
-    public function setSummary(string $summary): void {
-        $this->summary = $summary;
+    public function setSummary(?string $summary): void {
+        $this->summary = $summary ?? '';
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getAuthor(): string {
-        return $this->author;
+    public function getAuthors(): array {
+        return $this->authors;
     }
 
     /**
-     * @param string $author
+     * @param array $authors
      */
-    public function setAuthor(string $author): void {
-        $this->author = $author;
+    public function setAuthor(array $authors): void {
+        $this->authors = $authors;
+    }
+
+    /**
+     * @param string|null $author
+     */
+    public function addAuthor(?string $author): void {
+        $this->authors[] = $author ?? '';
     }
 
     /**
@@ -66,10 +73,10 @@ class Book {
     }
 
     /**
-     * @param string $editor
+     * @param string|null $editor
      */
-    public function setEditor(string $editor): void {
-        $this->editor = $editor;
+    public function setEditor(?string $editor): void {
+        $this->editor = $editor ?? '';
     }
 
     /**
@@ -80,10 +87,10 @@ class Book {
     }
 
     /**
-     * @param int $pageCount
+     * @param string|null $pageCount
      */
-    public function setPageCount(int $pageCount): void {
-        $this->pageCount = $pageCount;
+    public function setPageCount(?string $pageCount): void {
+        $this->pageCount = (int) $pageCount ?? 0;
     }
 
     /**
@@ -94,10 +101,10 @@ class Book {
     }
 
     /**
-     * @param string $releaseDate
+     * @param string|null $releaseDate
      */
-    public function setReleaseDate(string $releaseDate): void {
-        $this->releaseDate = $releaseDate;
+    public function setReleaseDate(?string $releaseDate): void {
+        $this->releaseDate = $releaseDate ?? '';
     }
 
     /**
@@ -136,10 +143,10 @@ class Book {
     }
 
     /**
-     * @param string $language
+     * @param string|null $language
      */
-    public function setLanguage(string $language): void {
-        $this->language = $language;
+    public function setLanguage(?string $language): void {
+        $this->language = $language ?? '';
     }
 
     /**
@@ -150,10 +157,10 @@ class Book {
     }
 
     /**
-     * @param string $coverUrl
+     * @param string|null $coverUrl
      */
-    public function setCoverUrl(string $coverUrl): void {
-        $this->coverUrl = $coverUrl;
+    public function setCoverUrl(?string $coverUrl): void {
+        $this->coverUrl = $coverUrl ?? '';
     }
 
     /**
@@ -170,5 +177,11 @@ class Book {
         $this->ids = $ids;
     }
 
-
+    /**
+     * @param string|null $key
+     * @param string|null $id
+     */
+    public function addId(?string $key, ?string $id): void {
+        $this->ids[$key] = $id ?? '';
+    }
 }

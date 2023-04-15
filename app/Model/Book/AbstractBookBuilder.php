@@ -3,12 +3,10 @@ declare(strict_types=1);
 
 namespace App\Model\Book;
 
+use Google\Service\Books\Volume;
+
 abstract class AbstractBookBuilder {
     private Book $result;
-    private array $jsonApiResponse;
-
-    public function __construct() {
-    }
 
     public function reset(): AbstractBookBuilder {
         $this->result = new Book();
@@ -19,6 +17,7 @@ abstract class AbstractBookBuilder {
         return $this->result;
     }
 
+    public abstract function setVolume(Volume|array $volume);
     public abstract function makeTitle(): AbstractBookBuilder;
     public abstract function makeSummary(): AbstractBookBuilder;
     public abstract function makeAuthor(): AbstractBookBuilder;
