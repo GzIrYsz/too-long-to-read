@@ -19,4 +19,6 @@ $app->get('/recommendations', \App\Controller\RecommendationsController::class .
 
 $app->get('/team', \App\Controller\TeamController::class . ':index');
 
+$app->get('/book/{isbn:[0-9]{10,13}}', \App\Controller\BookController::class . ':index');
+
 $app->run();

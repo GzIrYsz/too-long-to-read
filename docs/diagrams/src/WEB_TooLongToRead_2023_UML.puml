@@ -6,37 +6,78 @@ set namespaceSeparator .
 
 title Too Long To Read - UML
 
-namespace Controller {
+namespace App <<Frame>> {
 
-}
+    namespace Controller {
 
-namespace Model {
-    namespace Wrapper {
-        abstract class AbstractWrapper {
-            -httpClient: GuzzleHttp\Client
-            -baseUri: string
+    }
+
+    namespace Model {
+        namespace Wrapper {
+            abstract class AbstractWrapper {
+                -httpClient: GuzzleHttp\Client
+                -baseUri: string
+            }
+
+            class Goodreads extends AbstractWrapper {
+
+            }
+            class OpenLibrary extends AbstractWrapper {
+
+            }
+            class LibraryThing extends AbstractWrapper {
+            }
+            class Nasa extends AbstractWrapper {
+                -httpClient: GuzzleHttp\Client
+                -token: string
+
+                +getApod(string date, string startDate, string endDate): GuzzleHttp\Promise\PromiseInterface
+            }
+        }
+        class Book {
+            -title: string
+            -summary: string
+            -author: string
+            -editor: string
+            -pagesCount: string
+            -releaseDate: string
+            -themes: array
+            -kind: string
+            -language: string
+            -coverUrl: string
+            -ids: array
+        }
+        class Author {
+            -pictureUrl : string
+            -name: string
+            -biography: string
+            -dateOfBirth: string
+            -dateOfDeath: string
+            -ids: array
         }
 
-        class Goodreads extends AbstractWrapper {
-
-        }
-        class OpenLibrary extends AbstractWrapper {
-
-        }
-        class LibraryThing extends AbstractWrapper {
-        }
-        class Nasa extends AbstractWrapper {
-            -httpClient: GuzzleHttp\Client
-            -token: string
-
-            +getApod(string date, string startDate, string endDate): GuzzleHttp\Promise\PromiseInterface
+    namespace View {
+        class View {
+            +render()
         }
     }
 }
 
-namespace View {
-    class View {
-        +render()
+namespace Core <<Frame>> {
+
+    namespace Controller {
+        abstract class AbstractController {
+            -test: string
+        }
+        class ViewDoesNotExistsException extends Exception {
+            -test
+        }
+    }
+
+    namespace Wrapper {
+        abstract class AbstractWrapper {
+            -test
+        }
     }
 }
 
