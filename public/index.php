@@ -24,4 +24,6 @@ $app->get('/team', \App\Controller\TeamController::class . ':index');
 
 $app->get('/book/{isbn}', \App\Controller\BookController::class . ':index');
 
+$app->get('/author/{author}', \App\Controller\AuthorController::class . ':index');
+
 $app->run();
