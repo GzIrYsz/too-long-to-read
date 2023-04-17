@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class BookController extends \Core\Controller\AbstractController {
     public function index(Request $req, Response $res, array $args): Response {
-        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
         $dotenv->safeLoad();
         $client = new \Google\Client();
         $client->setApplicationName("Too Long To Read");

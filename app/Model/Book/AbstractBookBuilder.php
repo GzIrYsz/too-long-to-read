@@ -17,7 +17,7 @@ abstract class AbstractBookBuilder {
         return $this->result;
     }
 
-    public abstract function setVolume(Volume|array $volume);
+    public abstract function setVolume(Volume|array $volume): AbstractBookBuilder;
     public abstract function makeTitle(): AbstractBookBuilder;
     public abstract function makeSummary(): AbstractBookBuilder;
     public abstract function makeAuthor(): AbstractBookBuilder;

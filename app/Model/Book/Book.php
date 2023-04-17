@@ -89,8 +89,8 @@ class Book {
     /**
      * @param string|null $pageCount
      */
-    public function setPageCount(?string $pageCount): void {
-        $this->pageCount = (int) $pageCount ?? 0;
+    public function setPageCount(?int $pageCount): void {
+        $this->pageCount = $pageCount ?? 0;
     }
 
     /**
