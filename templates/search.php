@@ -5,6 +5,6 @@
         Utilisez notre fonction de recherche intuitive pour trouver rapidement votre prochaine lecture préférée.
     </p>
     <form>
-        <input type="search" name="q" id="q" placeholder="Rechercher">
+        <input type="search" name="q" id="q" placeholder="Rechercher"/>
     </form>
 </section>
