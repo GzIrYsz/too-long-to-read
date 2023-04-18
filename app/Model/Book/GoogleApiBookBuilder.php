@@ -73,4 +73,13 @@ class GoogleApiBookBuilder extends AbstractBookBuilder {
         }
         return $this;
     }
+
+    public function makeBookAuthorPageUrl(): AbstractBookBuilder {
+        return $this;
+    }
+
+    public function makeGId(): AbstractBookBuilder {
+        $this->getResult()->setGId($this->volume['id']);
+        return $this;
+    }
 }

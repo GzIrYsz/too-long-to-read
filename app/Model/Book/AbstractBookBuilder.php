@@ -29,4 +29,6 @@ abstract class AbstractBookBuilder {
     public abstract function makeLanguage(): AbstractBookBuilder;
     public abstract function makeCoverUrl(): AbstractBookBuilder;
     public abstract function makeIds(): AbstractBookBuilder;
+    public abstract function makeBookAuthorPageUrl(): AbstractBookBuilder;
+    public abstract function makeGId(): AbstractBookBuilder;
 }

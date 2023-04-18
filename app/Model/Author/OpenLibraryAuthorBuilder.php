@@ -2,7 +2,6 @@
 
 namespace App\Model\Author;
 
-use App\Model\Book\AbstractBookBuilder;
 use App\Model\Wrapper\OpenLibrary;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
@@ -11,7 +10,8 @@ class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
     private \stdClass $author;
 
     public function setAuthor(\stdClass $author): AbstractAuthorBuilder {
-        $key = max($author->docs)->key;
+        //$key = max($author->docs)->key;
+        $key = $author->docs[0]->key;
         $tmp = null;
         $client = new OpenLibrary();
         $client->getAuthorByOLID($key)

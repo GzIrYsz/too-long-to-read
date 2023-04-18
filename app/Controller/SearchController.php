@@ -15,7 +15,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $description = 'description';
         $keywords = 'a, b, c';
         $title = 'Test Page';
-        $res->getBody()->write($this->render('search', compact('author', 'description', 'keywords', 'title', 'currentSearch')));
+        $res->getBody()->write($this->render('search', compact('author', 'description', 'keywords', 'title')));
         return $res;
     }
 
@@ -39,6 +39,20 @@ class SearchController extends \Core\Controller\AbstractController {
         $description = 'description';
         $keywords = 'a, b, c';
         $title = 'Test Page';
+        $res->getBody()->write($this->render('searchresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
+        return $res;
+    }
+
+    public function searchAll() {
+
+    }
+
+    public function searchAuthor(Request $req, Response $res, array $args): Response {
+        $res->getBody()->write($this->render('searchresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
+        return $res;
+    }
+
+    public function searchTheme(Request $req, Response $res, array $args): Response {
         $res->getBody()->write($this->render('searchresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
         return $res;
     }

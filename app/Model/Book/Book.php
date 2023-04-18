@@ -15,6 +15,8 @@ class Book {
     private string $language;
     private string $coverUrl;
     private array $ids;
+    private string $bookAuthorPageUrl;
+    private string $gId;
 
     /**
      * @return string
@@ -183,5 +185,33 @@ class Book {
      */
     public function addId(?string $key, ?string $id): void {
         $this->ids[$key] = $id ?? '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookAuthorPageUrl(): string {
+        return $this->bookAuthorPageUrl;
+    }
+
+    /**
+     * @param string $bookAuthorPageUrl
+     */
+    public function setBookAuthorPageUrl(string $bookAuthorPageUrl): void {
+        $this->bookAuthorPageUrl = $bookAuthorPageUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGId(): string {
+        return $this->gId;
+    }
+
+    /**
+     * @param string $gId
+     */
+    public function setGId(string $gId): void {
+        $this->gId = $gId;
     }
 }

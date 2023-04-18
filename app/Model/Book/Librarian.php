@@ -26,6 +26,7 @@ class Librarian {
             ->makeLanguage()
             ->makeCoverUrl()
             ->makeIds()
+            ->makeGId()
             ->getResult();
     }
 }

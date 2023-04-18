@@ -6,5 +6,11 @@
     </p>
     <form>
         <input type="search" name="q" id="q" placeholder="Rechercher"/>
+        <select name="mode" id="mode">
+            <option value="all">Tout</option>
+            <option value="book">Livre</option>
+            <option value="author">Auteur</option>
+            <option value="theme">Thème</option>
+        </select>
     </form>
 </section>
