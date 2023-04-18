@@ -11,16 +11,17 @@ class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
 
     public function setAuthor(\stdClass $author): AbstractAuthorBuilder {
         //$key = max($author->docs)->key;
-        $key = $author->docs[0]->key;
-        $tmp = null;
-        $client = new OpenLibrary();
-        $client->getAuthorByOLID($key)
-            ->then(function (ResponseInterface $res) use (&$tmp) {
-                $tmp = $res->getBody()->getContents();
-            },
-            function (RequestException $e) {})
-            ->wait();
-        $this->author = json_decode($tmp);
+//        $key = $author->docs[0]->key;
+//        $tmp = null;
+//        $client = new OpenLibrary();
+//        $client->getAuthorByOLID($key)
+//            ->then(function (ResponseInterface $res) use (&$tmp) {
+//                $tmp = $res->getBody()->getContents();
+//            },
+//            function (RequestException $e) {})
+//            ->wait();
+//        $this->author = json_decode($tmp);
+        $this->author = $author;
         return $this;
     }
 

@@ -8,8 +8,8 @@
         <input type="search" name="q" id="q" placeholder="Rechercher" value="<?=$currentSearch?>">
         <select name="mode" id="mode">
             <option value="all">Tout</option>
-            <option value="book" selected>Livre</option>
-            <option value="author">Auteur</option>
+            <option value="book">Livre</option>
+            <option value="author" selected>Auteur</option>
             <option value="theme">Thème</option>
         </select>
     </form>
@@ -17,16 +17,11 @@
 <section>
     <h2>Résulats pour "<?=$currentSearch?>"</h2>
     <div>
-        <?php foreach ($books as $book): ?>
-        <div>
-            <a href="book/<?=$book->getGId()?>">
-                <img src="<?= $book->getCoverUrl() ?>"/>
-            </a>
-            <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
-            <?php foreach ($book->getAuthors() as $author): ?>
-            <a href="author/<?=$author?>"><?=$author?></a>
-            <?php endforeach; ?>
-        </div>
+        <?php foreach ($authors as $bookAuthor): ?>
+            <div>
+                <img src="<?= $bookAuthor->getPictureUrl() ?>"/>
+                <span><?=$bookAuthor->getName()?></span>
+            </div>
         <?php endforeach ?>
     </div>
 </section>
