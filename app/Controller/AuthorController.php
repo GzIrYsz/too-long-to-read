@@ -20,7 +20,8 @@ class AuthorController extends \Core\Controller\AbstractController {
             function (RequestException $e) {})
             ->wait();
         $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
-        $foundAuthor = $authorDirector->makeAuthor(json_decode($results));
+        $jsonDec = json_decode($results);
+        $foundAuthor = $authorDirector->makeAuthor($jsonDec->docs[0]);
         /******************************/
         $author = 'Thomas REMY';
         $description = 'description';
