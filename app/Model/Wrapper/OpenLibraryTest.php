@@ -8,9 +8,7 @@ $olid = '';
 $response->then(function (\Psr\Http\Message\ResponseInterface $res) use (&$olid) {
     $res = $res->getBody()->getContents();
     $content = json_decode($res);
-    $index = 0;
-    $maxWorks = max($content->docs);
-    $olid = $maxWorks->key;
+    $olid = $content->docs[0]->key;
 },
     function (\GuzzleHttp\Exception\RequestException $e) {
         echo $e->getMessage();
