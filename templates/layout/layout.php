@@ -25,7 +25,12 @@
     <?=$content?>
     </main>
     <footer>
-
+        <div>
+            <a href="https://www.cyu.fr/" title="CY Cergy Paris Université - S'ouvre dans un nouvel onglet">
+                <img src="/images/logo_cy.png" alt="Logo de CY Cergy Paris Université"/>
+            </a>
+            <span>Auteurs : Thomas REMY, Andrea DE ARAUJO</span>
+        </div>
     </footer>
 </body>
 </html>

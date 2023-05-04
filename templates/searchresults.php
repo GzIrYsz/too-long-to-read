@@ -18,14 +18,16 @@
     <h2>Résulats pour "<?=$currentSearch?>"</h2>
     <div>
         <?php foreach ($books as $book): ?>
-        <div>
+        <div class="bookSearch">
             <a href="book/<?=$book->getGId()?>">
                 <img src="<?= $book->getCoverUrl() ?>"/>
             </a>
-            <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
-            <?php foreach ($book->getAuthors() as $author): ?>
-            <a href="author/<?=$author?>"><?=$author?></a>
-            <?php endforeach; ?>
+            <div>
+                <a href="book/<?= $book->getGId() ?>"><?= $book->getTitle() ?></a>
+                <?php foreach ($book->getAuthors() as $author): ?>
+                    <a href="author/<?= $author ?>"><?= $author ?></a>
+                <?php endforeach; ?>
+            </div>
         </div>
         <?php endforeach ?>
     </div>
