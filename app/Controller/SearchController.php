@@ -52,7 +52,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $description = 'description';
         $keywords = 'a, b, c';
         $title = 'Recherche du livre : ' . $currentSearch;
-        $res->getBody()->write($this->render('searchresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
+        $res->getBody()->write($this->render('searchbookresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
         return $res;
     }
 
