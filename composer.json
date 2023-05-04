@@ -20,6 +20,14 @@
     "slim/slim": "^4.11",
     "vlucas/phpdotenv": "^5.5"
   },
+  "scripts": {
+    "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+  },
+  "extra": {
+    "google/apiclient-services": [
+      "Books"
+    ]
+  },
   "autoload": {
     "psr-4": {
       "App\\": "app/",
