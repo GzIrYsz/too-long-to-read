@@ -10,9 +10,22 @@
 body {
     color:#0A0A0A;
     background-color:white;
-    font-family: "Verdana", sans-serif;
+    font-family: "Lora", serif;
     font-size: 17px;
     line-height: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav > ul {
+    display: flex;
+}
+
+nav > ul > li {
+    list-style-type: none;
 }
 
 li  a{
@@ -23,7 +36,6 @@ li  a{
     height: 36px;
     line-height: 33px;
     padding: 0 10px;
-    font-family: Verdana;
     font-size: 15px;
     transition: .5s;
 }
@@ -35,8 +47,8 @@ li  a:hover{
 header{
     color:white;
     background-color:#93C4C4;
-    padding-top: 20px;
-    padding-bottom: 90px;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 main{
@@ -49,9 +61,10 @@ main{
 
 footer{
     background-color:#93C4C4;
-    padding-top: 30px;
-    padding-bottom:60px;
-    padding-left: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
 }
 
 h1{
@@ -121,4 +134,21 @@ span > a:link, p > a:link{
 
 span > a:visited, p > a:visited{
     color:#083837;
+}
+
+.bookSearch {
+    display: flex;
+}
+
+.bookSearch > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookSearch a {
+    text-decoration: none;
+}
+
+.bookSearch > div > a:first-child {
+    font-size: 1.5rem;
 }
