@@ -6,7 +6,7 @@ namespace App\Model\Book;
 class Book {
     private string $title;
     private string $summary;
-    private array $authors;
+    private array $authors = [''];
     private string $editor;
     private int $pageCount;
     private string $releaseDate;
@@ -89,7 +89,7 @@ class Book {
     }
 
     /**
-     * @param string|null $pageCount
+     * @param int|null $pageCount
      */
     public function setPageCount(?int $pageCount): void {
         $this->pageCount = $pageCount ?? 0;
