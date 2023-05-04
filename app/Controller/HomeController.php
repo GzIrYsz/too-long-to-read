@@ -11,7 +11,7 @@ class HomeController extends AbstractController {
         $author = 'Thomas REMY';
         $description = 'description';
         $keywords = 'a, b, c';
-        $title = 'Test Page';
+        $title = 'Accueil';
         $res->getBody()->write($this->render('home', compact('author', 'description', 'keywords', 'title')));
         return $res;
     }
