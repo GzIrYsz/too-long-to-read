@@ -51,7 +51,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $author = 'Thomas REMY';
         $description = 'description';
         $keywords = 'a, b, c';
-        $title = 'Test Page';
+        $title = 'Recherche du livre : ' . $currentSearch;
         $res->getBody()->write($this->render('searchresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
         return $res;
     }
@@ -75,7 +75,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $author = 'Thomas REMY';
         $description = 'description';
         $keywords = 'a, b, c';
-        $title = 'Test Page';
+        $title = 'Recherche : ' . $currentSearch;
         $res->getBody()->write($this->render('searchallresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'books')));
         return $res;
     }
@@ -85,21 +85,17 @@ class SearchController extends \Core\Controller\AbstractController {
         $currentSearch = $params['q'];
         $authors = [];
         $ol = new OpenLibrary();
-        $ol->searchForAuthor($args['q'])
-            ->then(function (Response $response) use (&$authors) {
-                $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
-                $decJson = json_decode($response->getBody()->getContents());
-                foreach ($decJson->docs as $author) {
-                    $authors[] = $authorDirector->makeAuthor($author);
-                }
-            },
-            function (RequestException $e) {})
-            ->wait();
+        $result = $ol->searchForAuthor($args['q'])->getBody()->getContents();
+        $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
+        $decJson = json_decode($result);
+        foreach ($decJson->docs as $author) {
+            $authors[] = $authorDirector->makeAuthor($author);
+        }
         /************************************/
         $author = 'Thomas REMY';
         $description = 'description';
         $keywords = 'a, b, c';
-        $title = 'Test Page';
+        $title = "Recherche de l'auteur : " . $currentSearch;
         $res->getBody()->write($this->render('searchauthorresults', compact('author', 'description', 'keywords', 'title', 'currentSearch', 'authors')));
         return $res;
     }

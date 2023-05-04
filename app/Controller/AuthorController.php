@@ -12,13 +12,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class AuthorController extends \Core\Controller\AbstractController {
     public function index(Request $req, Response $res, array $args): Response {
         $client = new OpenLibrary();
-        $results = null;
-        $client->searchForAuthor($args['author'])
-            ->then(function (Response $response) use (&$results) {
-                $results = $response->getBody()->getContents();
-            },
-            function (RequestException $e) {})
-            ->wait();
+        $results = $client->searchForAuthor($args['author'])->getBody()->getContents();
         $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
         $jsonDec = json_decode($results);
         $foundAuthor = $authorDirector->makeAuthor($jsonDec->docs[0]);
