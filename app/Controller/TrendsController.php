@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use Core\Controller\AbstractController;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class TrendsController extends \Core\Controller\AbstractController
-{
+class TrendsController extends AbstractController {
 
     public function index(Request $req, Response $res, array $args): Response {
         $author = 'Thomas REMY';

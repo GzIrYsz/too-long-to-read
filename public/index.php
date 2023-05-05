@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+use App\Controller\AuthorController;
+use App\Controller\BookController;
+use App\Controller\HomeController;
+use App\Controller\RecommendationsController;
+use App\Controller\SearchController;
+use App\Controller\TeamController;
+use App\Controller\TrendsController;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -12,18 +19,18 @@ $app = AppFactory::create();
 
 $app->addErrorMiddleware(true, false, false);
 
-$app->get('/', \App\Controller\HomeController::class . ':index');
+$app->get('/', HomeController::class . ':index');
 
-$app->get('/search', \App\Controller\SearchController::class . ':index');
+$app->get('/search', SearchController::class . ':index');
 
-$app->get('/trends', \App\Controller\TrendsController::class . ':index');
+$app->get('/trends', TrendsController::class . ':index');
 
-$app->get('/recommendations', \App\Controller\RecommendationsController::class . ':index');
+$app->get('/recommendations', RecommendationsController::class . ':index');
 
-$app->get('/team', \App\Controller\TeamController::class . ':index');
+$app->get('/team', TeamController::class . ':index');
 
-$app->get('/book/{isbn}', \App\Controller\BookController::class . ':index');
+$app->get('/book/{isbn}', BookController::class . ':index');
 
-$app->get('/author/{author}', \App\Controller\AuthorController::class . ':index');
+$app->get('/author/{author}', AuthorController::class . ':index');
 
 $app->run();

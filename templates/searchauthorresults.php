@@ -15,13 +15,15 @@
     </form>
 </div>
 <section>
-    <h2>Résulats pour "<?=$currentSearch?>"</h2>
-    <div>
+    <h2>Résulats pour "<?=htmlspecialchars($currentSearch)?>"</h2>
+    <ul>
         <?php foreach ($authors as $bookAuthor): ?>
-            <div>
-                <img src="<?= $bookAuthor->getPictureUrl() ?>"/>
-                <span><?=$bookAuthor->getName()?></span>
-            </div>
+            <li>
+                <a href="author/<?=$bookAuthor->getName()?>">
+                    <img src="<?= $bookAuthor->getPictureUrl() ?>"/>
+                </a>
+                <a href="author/<?=$bookAuthor->getName()?>"><?=$bookAuthor->getName()?></a>
+            </li>
         <?php endforeach ?>
-    </div>
+    </ul>
 </section>

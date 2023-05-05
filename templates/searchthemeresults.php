@@ -15,20 +15,28 @@
     </form>
 </div>
 <section>
-    <h2>Résulats pour "<?=$currentSearch?>"</h2>
-    <div>
+    <h2>Résulats pour "<?=htmlspecialchars($currentSearch)?>"</h2>
+    <ul>
         <?php foreach ($books as $book): ?>
-            <div class="bookSearch">
+            <li class="bookSearch">
                 <a href="book/<?=$book->getGId()?>">
-                    <img src="<?= $book->getCoverUrl() ?>"/>
+                    <img src="<?=$book->getCoverUrl()?>"/>
                 </a>
                 <div>
-                    <a href="book/<?= $book->getGId() ?>"><?= $book->getTitle() ?></a>
+                    <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
                     <?php foreach ($book->getAuthors() as $author): ?>
-                        <a href="author/<?= $author ?>"><?= $author ?></a>
+                        <a href="author/<?=$author?>"><?=$author?></a>
                     <?php endforeach; ?>
                 </div>
-            </div>
+            </li>
         <?php endforeach ?>
+    </ul>
+    <div>
+        <?php if (!empty($prev)): ?>
+            <a href="<?=$prev?>">Page précédente</a>
+        <?php endif; ?>
+        <?php if (!empty($next)): ?>
+            <a href="<?=$next?>">Page suivante</a>
+        <?php endif; ?>
     </div>
 </section>

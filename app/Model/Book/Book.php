@@ -54,6 +54,14 @@ class Book {
     }
 
     /**
+     * @param int $index
+     * @return string
+     */
+    public function getAuthor(int $index): string {
+        return $this->authors[$index] ?? '';
+    }
+
+    /**
      * @param array $authors
      */
     public function setAuthor(array $authors): void {

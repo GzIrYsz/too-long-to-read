@@ -2,9 +2,11 @@
 
 namespace App\Model\Author;
 
-use App\Model\Wrapper\OpenLibrary;
-use GuzzleHttp\Exception\RequestException;
-use Psr\Http\Message\ResponseInterface;
+use App\Model\Book\GoogleApiBookBuilder;
+use App\Model\Book\Librarian;
+use Dotenv\Dotenv;
+use Google\Client;
+use Google\Service\Books;
 
 class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
     private \stdClass $author;
@@ -56,19 +58,19 @@ class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
     }
 
     public function makeTrendyBooks(): AbstractAuthorBuilder {
-        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
         $dotenv->load();
 
-        $client = new \Google\Client();
+        $client = new Client();
         $client->setApplicationName("Too Long To Read");
         $client->setDeveloperKey($_ENV['GOOGLEAPI_TOKEN']);
-        $service = new \Google\Service\Books($client);
+        $service = new Books($client);
         $query = '+inauthor:' . $this->author->name;
         $optParams = [
             'maxResults' => '4'
         ];
         $results = $service->volumes->listVolumes($query, $optParams);
-        $librarian = new \App\Model\Book\Librarian(new \App\Model\Book\GoogleApiBookBuilder());
+        $librarian = new Librarian(new GoogleApiBookBuilder());
         foreach ($results->getItems() as $item) {
             $this->getResult()->addTrendyBook($librarian->makeBook($item));
         }

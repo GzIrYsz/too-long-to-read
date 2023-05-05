@@ -12,7 +12,8 @@ class HomeController extends AbstractController {
         $description = 'description';
         $keywords = 'a, b, c';
         $title = 'Accueil';
-        $res->getBody()->write($this->render('home', compact('author', 'description', 'keywords', 'title')));
+        $lastBookId = $_COOKIE['lastBookId'] ?? null;
+        $res->getBody()->write($this->render('home', compact('author', 'description', 'keywords', 'title', 'lastBookId')));
         return $res;
     }
 }
