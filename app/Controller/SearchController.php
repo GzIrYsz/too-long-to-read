@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Model\Author\AuthorDirector;
 use App\Model\Author\OpenLibraryAuthorBuilder;
+use App\Model\Book\GoogleApiBookBuilder;
+use App\Model\Book\Librarian;
 use App\Model\Wrapper\OpenLibrary;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -42,7 +44,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $client->setDeveloperKey(getenv('GOOGLEAPI_TOKEN'));
         $service = new \Google\Service\Books($client);
         $results = $service->volumes->listVolumes($currentSearch);
-        $librarian = new \App\Model\Book\Librarian(new \App\Model\Book\GoogleApiBookBuilder());
+        $librarian = new Librarian(new GoogleApiBookBuilder());
         $books = [];
         foreach ($results->getItems() as $result) {
             $books[] = $librarian->makeBook($result);
@@ -66,7 +68,7 @@ class SearchController extends \Core\Controller\AbstractController {
         $client->setDeveloperKey(getenv('GOOGLEAPI_TOKEN'));
         $service = new \Google\Service\Books($client);
         $results = $service->volumes->listVolumes($currentSearch);
-        $librarian = new \App\Model\Book\Librarian(new \App\Model\Book\GoogleApiBookBuilder());
+        $librarian = new Librarian(new GoogleApiBookBuilder());
         $books = [];
         foreach ($results->getItems() as $result) {
             $books[] = $librarian->makeBook($result);
@@ -109,8 +111,8 @@ class SearchController extends \Core\Controller\AbstractController {
         $client->setApplicationName("Too Long To Read");
         $client->setDeveloperKey(getenv('GOOGLEAPI_TOKEN'));
         $service = new \Google\Service\Books($client);
-        $results = $service->volumes->listVolumes($currentSearch);
-        $librarian = new \App\Model\Book\Librarian(new \App\Model\Book\GoogleApiBookBuilder());
+        $results = $service->volumes->listVolumes("+subject" . $currentSearch);
+        $librarian = new Librarian(new GoogleApiBookBuilder());
         $books = [];
         foreach ($results->getItems() as $result) {
             $books[] = $librarian->makeBook($result);
