@@ -1,13 +1,13 @@
-<section>
+<section class="left-illustration">
+    <img src="/images/bookshelf.png" alt="Illustration d'une bibliothèque"/>
     <div>
         <h1>Too Long To Read</h1>
         <form action="search">
-            <input type="search" placeholder="Rechercher" name="q" id="q"/>
+            <input type="search" placeholder="Rechercher" name="q" class="big-search-bar big-margin"/>
         </form>
     </div>
-    <img src="" alt="Illustration d'une bibliothèque"/>
 </section>
-<section>
-    <h2>Recommandations</h2>
-    <span style="color: red">En construction !</span>
-</section>
+<!--<section>-->
+<!--    <h2>Recommandations</h2>-->
+<!--    <span style="color: red">En construction !</span>-->
+<!--</section>-->

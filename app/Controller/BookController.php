@@ -23,7 +23,7 @@ class BookController extends AbstractController {
         $librarian = new Librarian(new GoogleApiBookBuilder());
         $book = $librarian->makeBook($results);
         setcookie('lastBookId', $book->getGId(), time()+60*60*24*365, '/');
-        $this->updateAccessedBooks($book->getGId());
+        $this->updateAccessedBooks($book->getGId(), $book->getTitle());
         /******************************/
         $author = 'Thomas REMY';
         $description = 'description';
@@ -33,10 +33,10 @@ class BookController extends AbstractController {
         return $res;
     }
 
-    private function updateAccessedBooks(string $id): void {
+    private function updateAccessedBooks(string $id, string $bookName): void {
         $FILE_PATH = "../data/accessedBooks.csv";
         if (!file_exists($FILE_PATH)) {
-            $this->createCsvWithHeader(['googleId', 'count']);
+            $this->createCsvWithHeader(['count', 'googleId', 'bookName']);
         }
         $handle = fopen($FILE_PATH, 'r+');
         $idFound = false;
@@ -44,20 +44,22 @@ class BookController extends AbstractController {
         while ($currentLign != false && !$idFound) {
             $lineStart = ftell($handle);
             $currentLign = fgetcsv($handle);
-            if (!empty($currentLign) && $currentLign[0] == $id) {
+            if (!empty($currentLign) && $currentLign[1] == $id) {
                 fseek($handle, $lineStart);
-                fputcsv($handle, [$currentLign[0], ++$currentLign[1]]);
+                fputcsv($handle, [++$currentLign[0], $currentLign[1], $currentLign[2]]);
                 $idFound = true;
             }
         }
         if (!$idFound) {
-            fputcsv($handle, [$id, 1]);
+            fputcsv($handle, [1, $id, $bookName]);
         }
+        fclose($handle);
     }
 
     private function createCsvWithHeader(array $header) {
         $FILE_PATH = "../data/accessedBooks.csv";
         $handle = fopen($FILE_PATH, 'w');
         fputcsv($handle, $header);
+        fclose($handle);
     }
 }

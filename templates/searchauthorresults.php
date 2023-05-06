@@ -1,12 +1,12 @@
 <h1>Recherche</h1>
-<div>
-    <p>
+<div class="content-centered large centered">
+    <p class="centered">
         Plongez dans notre univers littéraire et découvrez une sélection de livres captivants pour tous les goûts.
         Utilisez notre fonction de recherche intuitive pour trouver rapidement votre prochaine lecture préférée.
     </p>
     <form>
-        <input type="search" name="q" id="q" placeholder="Rechercher" value="<?=$currentSearch?>">
-        <select name="mode" id="mode">
+        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar">
+        <select name="mode" class="big-search-select">
             <option value="all">Tout</option>
             <option value="book">Livre</option>
             <option value="author" selected>Auteur</option>
@@ -14,9 +14,9 @@
         </select>
     </form>
 </div>
-<section>
+<section class="results authors centered">
     <h2>Résulats pour "<?=htmlspecialchars($currentSearch)?>"</h2>
-    <ul>
+    <ul class="centered">
         <?php foreach ($authors as $bookAuthor): ?>
             <li>
                 <a href="author/<?=$bookAuthor->getName()?>">

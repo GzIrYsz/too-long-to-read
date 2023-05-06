@@ -4,10 +4,9 @@ declare(strict_types=1);
 use App\Controller\AuthorController;
 use App\Controller\BookController;
 use App\Controller\HomeController;
-use App\Controller\RecommendationsController;
+use App\Controller\StatsController;
 use App\Controller\SearchController;
 use App\Controller\TeamController;
-use App\Controller\TrendsController;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -23,9 +22,7 @@ $app->get('/', HomeController::class . ':index');
 
 $app->get('/search', SearchController::class . ':index');
 
-$app->get('/trends', TrendsController::class . ':index');
-
-$app->get('/recommendations', RecommendationsController::class . ':index');
+$app->get('/stats', StatsController::class . ':index');
 
 $app->get('/team', TeamController::class . ':index');
 

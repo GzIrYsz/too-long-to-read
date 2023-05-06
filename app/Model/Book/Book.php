@@ -170,7 +170,7 @@ class Book {
      * @param string|null $coverUrl
      */
     public function setCoverUrl(?string $coverUrl): void {
-        $this->coverUrl = $coverUrl ?? '';
+        $this->coverUrl = $coverUrl ?? '/images/no-image-placeholder.svg';
     }
 
     /**

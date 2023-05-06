@@ -12,7 +12,8 @@ class TeamController extends \Core\Controller\AbstractController {
         $description = 'description';
         $keywords = 'a, b, c';
         $title = 'Test Page';
-        $res->getBody()->write($this->render('team', compact('author', 'description', 'keywords', 'title')));
+        $lastBookId = $_COOKIE['lastBookId'] ?? null;
+        $res->getBody()->write($this->render('team', compact('author', 'description', 'keywords', 'title', 'lastBookId')));
         return $res;
     }
 }

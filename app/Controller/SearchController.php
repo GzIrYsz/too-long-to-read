@@ -56,9 +56,13 @@ class SearchController extends AbstractController {
         $librarian = new Librarian(new GoogleApiBookBuilder());
         $books = [];
         $booksAuthors = [];
+        $i = 0;
         foreach ($results->getItems() as $result) {
             $books[] = $librarian->makeBook($result);
             if (!array_key_exists(end($books)->getAuthor(1), $booksAuthors)) {
+                if ($i > 4) {
+                    continue;
+                }
                 $stdAuthor = json_decode($ol->searchForAuthor(end($books)->getAuthor(1))->getBody()->getContents());
                 $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
                 $author = null;
@@ -66,6 +70,7 @@ class SearchController extends AbstractController {
                     $author = $authorDirector->makeAuthor($stdAuthor->docs[0]);
                     if (!array_key_exists($author->getName(), $booksAuthors)) {
                         $booksAuthors[end($books)->getAuthor(1)] = $author;
+                        $i++;
                     }
                 }
             }

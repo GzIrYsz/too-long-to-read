@@ -12,12 +12,11 @@
 </head>
 <body>
     <header>
-        <a href="/"><img src="" alt="Logo de Too Long To Read" title="Revenir à l'accueil"/></a>
+        <a href="/"><img src="/images/logo_tltr_100x100_noBG.png" alt="Logo de Too Long To Read" title="Revenir à l'accueil"/></a>
         <nav>
             <ul>
-                <li><a href="trends">Tendances</a></li>
-                <li><a href="recommendations">Suggestions</a></li>
-                <li><a href="team">L'équipe</a></li>
+                <li><a href="/stats">Statistiques</a></li>
+                <li><a href="/team">L'équipe</a></li>
             </ul>
         </nav>
     </header>
@@ -29,7 +28,7 @@
             <?php if (isset($lastBookId)): ?>
                 <a href="/book/<?=$lastBookId?>">Accéder au dernier livre consulté sur le site</a>
             <?php endif; ?>
-            <a href="https://www.cyu.fr/" title="CY Cergy Paris Université - S'ouvre dans un nouvel onglet">
+            <a href="https://www.cyu.fr/" target="_blank" title="CY Cergy Paris Université - S'ouvre dans un nouvel onglet">
                 <img src="/images/logo_cy.png" alt="Logo de CY Cergy Paris Université"/>
             </a>
             <span>Auteurs : Thomas REMY, Andrea DE ARAUJO</span>
