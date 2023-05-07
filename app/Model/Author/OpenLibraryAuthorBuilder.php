@@ -67,7 +67,7 @@ class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
         $service = new Books($client);
         $query = '+inauthor:' . $this->author->name;
         $optParams = [
-            'maxResults' => '4'
+            'maxResults' => '5'
         ];
         $results = $service->volumes->listVolumes($query, $optParams);
         $librarian = new Librarian(new GoogleApiBookBuilder());

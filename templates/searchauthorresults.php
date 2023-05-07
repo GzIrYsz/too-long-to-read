@@ -18,7 +18,7 @@
     <h2>Résulats pour "<?=htmlspecialchars($currentSearch)?>"</h2>
     <ul class="centered">
         <?php foreach ($authors as $bookAuthor): ?>
-            <li>
+            <li class="vertical">
                 <a href="author/<?=$bookAuthor->getName()?>">
                     <img src="<?= $bookAuthor->getPictureUrl() ?>"/>
                 </a>

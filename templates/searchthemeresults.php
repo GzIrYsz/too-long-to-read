@@ -31,12 +31,12 @@
             </li>
         <?php endforeach ?>
     </ul>
-    <div>
+    <div class="change-page">
         <?php if (!empty($prev)): ?>
-            <a href="<?=$prev?>">Page précédente</a>
+            <a href="<?=$prev?>" class="button">Page précédente</a>
         <?php endif; ?>
         <?php if (!empty($next)): ?>
-            <a href="<?=$next?>">Page suivante</a>
+            <a href="<?=$next?>" class="button">Page suivante</a>
         <?php endif; ?>
     </div>
 </section>

@@ -1,4 +1,4 @@
-<section class="left-illustration">
+<section class="left-illustration two-cols">
     <img src="/images/bookshelf.png" alt="Illustration d'une bibliothèque"/>
     <div>
         <h1>Too Long To Read</h1>

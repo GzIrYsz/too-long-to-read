@@ -20,11 +20,9 @@
         <h3>Livres</h3>
         <ul class="centered">
             <?php foreach ($books as $book): ?>
-                <li class="bookSearch">
+                <li>
                     <a href="book/<?=$book->getGId() ?>">
-                        <?php if (!empty($book->getCoverUrl())): ?>
-                            <img src="<?=$book->getCoverUrl()?>" alt="<?=$book->getTitle()?>'s cover"/>
-                        <?php endif; ?>
+                        <img src="<?=$book->getCoverUrl()?>" alt="<?=$book->getTitle()?>'s cover"/>
                     </a>
                     <div class="vertical">
                         <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
@@ -37,7 +35,7 @@
                 </li>
             <?php endforeach ?>
         </ul>
-        <div>
+        <div class="change-page">
             <?php if (!empty($prev)): ?>
                 <a class="button" href="<?=$prev?>">Page précédente</a>
             <?php endif; ?>
@@ -50,7 +48,7 @@
         <h3>Auteurs</h3>
         <ul>
             <?php foreach ($booksAuthors as $bookAuthor): ?>
-                <li>
+                <li class="vertical">
                     <a href="author/<?=urlencode($bookAuthor->getName())?>">
                         <img src="<?=$bookAuthor->getPictureUrl()?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
                     </a>

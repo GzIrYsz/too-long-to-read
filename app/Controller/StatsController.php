@@ -12,13 +12,15 @@ class StatsController extends AbstractController {
 
     public function index(Request $req, Response $res, array $args): Response {
         $barChart = $this->getAccessedBooksChart();
+        $nbVisit = file_get_contents("../data/hit-counter.txt");
         /************************************/
         $author = 'Thomas REMY';
         $description = 'Cette page présente les statistiques du site.';
         $keywords = 'stats, statistiques, livres';
         $title = 'Statistiques';
         $lastBookId = $_COOKIE['lastBookId'] ?? null;
-        $res->getBody()->write($this->render('stats', compact('author', 'description', 'keywords', 'title', 'lastBookId', 'barChart')));
+        $res->getBody()->write($this->render('stats', compact('author',
+            'description', 'keywords', 'title', 'lastBookId', 'barChart', 'nbVisit')));
         return $res;
     }
 

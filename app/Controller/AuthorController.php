@@ -14,7 +14,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class AuthorController extends AbstractController {
     public function index(Request $req, Response $res, array $args): Response {
         $client = new OpenLibrary();
-        $results = $client->searchForAuthor($args['author'])->getBody()->getContents();
+        $results = $client->searchForAuthor(urldecode($args['author']))->getBody()->getContents();
         $authorDirector = new AuthorDirector(new OpenLibraryAuthorBuilder());
         $jsonDec = json_decode($results);
         if (empty($jsonDec->docs[0])) {

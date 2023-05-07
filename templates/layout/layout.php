@@ -15,8 +15,9 @@
         <a href="/"><img src="/images/logo_tltr_100x100_noBG.png" alt="Logo de Too Long To Read" title="Revenir à l'accueil"/></a>
         <nav>
             <ul>
-                <li><a href="/stats">Statistiques</a></li>
-                <li><a href="/team">L'équipe</a></li>
+                <li><a href="/stats" class="caps">Statistiques</a></li>
+                <li><a href="/tech" class="caps">Tech</a></li>
+<!--                <li><a href="/team" class="caps">L'équipe</a></li>-->
             </ul>
         </nav>
     </header>

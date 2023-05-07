@@ -75,7 +75,6 @@ nav ul li {
 nav ul a {
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 nav ul a:visited {
@@ -93,9 +92,6 @@ nav ul a:hover {
 
 h1 {
     color: var(--accent-color);
-}
-
-main > h1 {
     text-align: center;
     margin: 20px;
 }
@@ -115,6 +111,10 @@ a:hover {
 
 a:active {
     color: var(--accent-color-dark);
+}
+
+p {
+    text-align: justify;
 }
 
 .big-search-bar {
@@ -151,7 +151,7 @@ a:active {
     color: var(--accent-color);
 }
 
-.left-illustration {
+.two-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -176,6 +176,13 @@ p.centered {
 div.centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+img.centered {
+    align-self: center;
+    justify-self: center;
+    max-height: 100%;
+    width: 40%;
 }
 
 section.centered {
@@ -223,11 +230,30 @@ div.content-centered {
     align-items: center;
 }
 
+section.content-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 div.large {
     width: 75%;
 }
 
+section.large {
+    width: 75%;
+}
+
+div.pad-large {
+    padding: 0 5%;
+}
+
 div.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+li.vertical {
     display: flex;
     flex-direction: column;
 }
@@ -236,6 +262,72 @@ div.vertical {
     border-radius: 10px;
     max-width: 50%;
     max-height: 50%;
+}
+
+.results.large img {
+    max-height: 100%;
+}
+
+.authors img {
+    max-height: 100%;
+}
+
+img.rounded {
+    border-radius: 20px;
+}
+
+div.change-page {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.button {
+    padding: 10px;
+    border-width: thin;
+    border-style: solid;
+    border-color: var(--accent-color);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+a.button:hover {
+    background-color: var(--accent-color-light-dark);
+    color: white;
+}
+
+a.button:active {
+    background-color: var(--accent-color-dark);
+}
+
+div.features {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+svg.chart rect, svg.chart text {
+    fill: white;
+}
+
+svg.chart rect:hover, svg.chart text:hover {
+    fill: var(--accent-color-light-dark);
+    transition: 0.1s;
+}
+
+svg.chart rect:active, svg.chart text:active {
+    fill: var(--accent-color-dark);
+}
+
+figure > figcaption {
+    text-align: center;
 }
 
 /*********************

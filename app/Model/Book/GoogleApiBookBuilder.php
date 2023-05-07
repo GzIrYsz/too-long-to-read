@@ -47,6 +47,9 @@ class GoogleApiBookBuilder extends AbstractBookBuilder {
     }
 
     public function makeThemes(): AbstractBookBuilder {
+        foreach ($this->volume['volumeInfo']['categories'] as $category) {
+            $this->getResult()->addTheme($category);
+        }
         return $this;
     }
 

@@ -1,8 +1,8 @@
 <h1>Statistiques</h1>
-<section>
+<section class="large centered">
     <h2>Livres les plus consultés</h2>
     <figure>
-        <svg viewBox="0 0 1000 500">
+        <svg viewBox="0 0 1000 500" class="chart">
             <?php for ($i = 0; $i < $barChart->getNbBars(); $i++): ?>
                 <a href="/book/<?=$barChart->getBar($i)->getInfo()?>">
                     <rect x="<?=$i*((1000-(($barChart->getNbBars()+1)*10))/$barChart->getNbBars())+($i+1)*10?>"
@@ -19,7 +19,7 @@
         <figcaption>Graphique représentant le top 5 des livres les plus consultés sur le site</figcaption>
     </figure>
 </section>
-<section>
+<section class="content-centered large centered">
     <h2>Nombre de visites du site</h2>
-    <span>Jusqu'à ce jour, le site à été visité x fois.</span>
+    <span>Jusqu'à ce jour, le site à été visité <?=$nbVisit?> fois.</span>
 </section>

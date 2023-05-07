@@ -10,7 +10,7 @@ class Book {
     private string $editor;
     private int $pageCount;
     private string $releaseDate;
-    private array $themes;
+    private array $themes = [];
     private string $kind;
     private string $language;
     private string $coverUrl;
@@ -125,10 +125,25 @@ class Book {
     }
 
     /**
+     * @param int $index
+     * @return string|null
+     */
+    public function getTheme(int $index): string|null {
+        return $this->themes[$index];
+    }
+
+    /**
      * @param array $themes
      */
     public function setThemes(array $themes): void {
         $this->themes = $themes;
+    }
+
+    /**
+     * @param string|null $theme
+     */
+    public function addTheme(?string $theme): void {
+        $this->themes[] = $theme ?? "";
     }
 
     /**
