@@ -5,12 +5,12 @@
         Utilisez notre fonction de recherche intuitive pour trouver rapidement votre prochaine lecture préférée.
     </p>
     <form>
-        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar">
+        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar"/>
         <select name="mode" class="big-search-select">
             <option value="all">Tout</option>
             <option value="book">Livre</option>
             <option value="author">Auteur</option>
-            <option value="theme" selected>Thème</option>
+            <option value="theme" selected="selected">Thème</option>
         </select>
     </form>
 </div>
@@ -20,12 +20,12 @@
         <?php foreach ($books as $book): ?>
             <li class="bookSearch">
                 <a href="book/<?=$book->getGId()?>">
-                    <img src="<?=$book->getCoverUrl()?>"/>
+                    <img src="<?=htmlspecialchars($book->getCoverUrl())?>" alt="<?=$book->getTitle()?>'s cover"/>
                 </a>
                 <div class="vertical">
                     <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
                     <?php foreach ($book->getAuthors() as $author): ?>
-                        <a href="author/<?=$author?>"><?=$author?></a>
+                        <a href="author/<?=urlencode($author)?>"><?=$author?></a>
                     <?php endforeach; ?>
                 </div>
             </li>
@@ -33,10 +33,10 @@
     </ul>
     <div class="change-page">
         <?php if (!empty($prev)): ?>
-            <a href="<?=$prev?>" class="button">Page précédente</a>
+            <a href="<?=htmlspecialchars($prev)?>" class="button">Page précédente</a>
         <?php endif; ?>
         <?php if (!empty($next)): ?>
-            <a href="<?=$next?>" class="button">Page suivante</a>
+            <a href="<?=htmlspecialchars($next)?>" class="button">Page suivante</a>
         <?php endif; ?>
     </div>
 </section>

@@ -5,9 +5,9 @@
         Utilisez notre fonction de recherche intuitive pour trouver rapidement votre prochaine lecture préférée.
     </p>
     <form>
-        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar">
+        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar"/>
         <select name="mode" class="big-search-select">
-            <option value="all" selected>Tout</option>
+            <option value="all" selected="selected">Tout</option>
             <option value="book">Livre</option>
             <option value="author">Auteur</option>
             <option value="theme">Thème</option>
@@ -22,7 +22,7 @@
             <?php foreach ($books as $book): ?>
                 <li>
                     <a href="book/<?=$book->getGId() ?>">
-                        <img src="<?=$book->getCoverUrl()?>" alt="<?=$book->getTitle()?>'s cover"/>
+                        <img src="<?=htmlspecialchars($book->getCoverUrl())?>" alt="<?=$book->getTitle()?>'s cover"/>
                     </a>
                     <div class="vertical">
                         <a href="book/<?=$book->getGId()?>"><?=$book->getTitle()?></a>
@@ -37,10 +37,10 @@
         </ul>
         <div class="change-page">
             <?php if (!empty($prev)): ?>
-                <a class="button" href="<?=$prev?>">Page précédente</a>
+                <a class="button" href="<?=htmlspecialchars($prev)?>">Page précédente</a>
             <?php endif; ?>
             <?php if (!empty($next)): ?>
-                <a class="button" href="<?=$next?>">Page suivante</a>
+                <a class="button" href="<?=htmlspecialchars($next)?>">Page suivante</a>
             <?php endif; ?>
         </div>
     </section>
@@ -50,7 +50,7 @@
             <?php foreach ($booksAuthors as $bookAuthor): ?>
                 <li class="vertical">
                     <a href="author/<?=urlencode($bookAuthor->getName())?>">
-                        <img src="<?=$bookAuthor->getPictureUrl()?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
+                        <img src="<?=htmlspecialchars($book->getCoverUrl())?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
                     </a>
                     <a href="author/<?=urlencode($bookAuthor->getName())?>"><?=$bookAuthor->getName()?></a>
                 </li>

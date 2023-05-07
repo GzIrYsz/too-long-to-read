@@ -5,11 +5,11 @@
         Utilisez notre fonction de recherche intuitive pour trouver rapidement votre prochaine lecture préférée.
     </p>
     <form>
-        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar">
+        <input type="search" name="q" placeholder="Rechercher" value="<?=htmlspecialchars($currentSearch)?>" class="big-search-bar"/>
         <select name="mode" class="big-search-select">
             <option value="all">Tout</option>
             <option value="book">Livre</option>
-            <option value="author" selected>Auteur</option>
+            <option value="author" selected="selected">Auteur</option>
             <option value="theme">Thème</option>
         </select>
     </form>
@@ -19,10 +19,10 @@
     <ul class="centered">
         <?php foreach ($authors as $bookAuthor): ?>
             <li class="vertical">
-                <a href="author/<?=$bookAuthor->getName()?>">
-                    <img src="<?= $bookAuthor->getPictureUrl() ?>"/>
+                <a href="author/<?=urlencode($bookAuthor->getName())?>">
+                    <img src="<?=htmlspecialchars($bookAuthor->getPictureUrl())?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
                 </a>
-                <a href="author/<?=$bookAuthor->getName()?>"><?=$bookAuthor->getName()?></a>
+                <a href="author/<?=urlencode($bookAuthor->getName())?>"><?=$bookAuthor->getName()?></a>
             </li>
         <?php endforeach ?>
     </ul>
