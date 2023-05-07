@@ -19,7 +19,7 @@ class GoogleApiBookBuilder extends AbstractBookBuilder {
     }
 
     public function makeSummary(): AbstractBookBuilder {
-        $this->getResult()->setSummary($this->volume['volumeInfo']['description']);
+        $this->getResult()->setSummary(strip_tags($this->volume['volumeInfo']['description']));
         return $this;
     }
 
