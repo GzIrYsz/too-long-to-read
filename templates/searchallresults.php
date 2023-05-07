@@ -50,7 +50,7 @@
             <?php foreach ($booksAuthors as $bookAuthor): ?>
                 <li class="vertical">
                     <a href="author/<?=urlencode($bookAuthor->getName())?>">
-                        <img src="<?=htmlspecialchars($book->getCoverUrl())?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
+                        <img src="<?=htmlspecialchars($bookAuthor->getPictureUrl())?>" alt="<?=$bookAuthor->getName()?>'s picture"/>
                     </a>
                     <a href="author/<?=urlencode($bookAuthor->getName())?>"><?=$bookAuthor->getName()?></a>
                 </li>
