@@ -9,10 +9,11 @@ use Core\Controller\AbstractController;
 class HomeController extends AbstractController {
     public function index(Request $req, Response $res, array $args): Response {
         $author = 'Thomas REMY';
-        $description = 'description';
-        $keywords = 'a, b, c';
-        $title = 'Test Page';
-        $res->getBody()->write($this->render('home', compact('author', 'description', 'keywords', 'title')));
+        $description = "Too Long To Read est un site de recherche de livres réalisé dans le cadre d'un projet universitaire de deuxième année de licence d'informatique";
+        $keywords = 'TooLongToRead, TLTR, tltr, recherche, livre, livres, auteur, auteurs, ecrivain, écrivain, écrivains';
+        $title = 'Accueil';
+        $lastBookId = $_COOKIE['lastBookId'] ?? null;
+        $res->getBody()->write($this->render('home', compact('author', 'description', 'keywords', 'title', 'lastBookId')));
         return $res;
     }
 }
