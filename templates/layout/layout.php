@@ -27,7 +27,7 @@
     <footer>
         <div>
             <?php if (isset($lastBookId)): ?>
-                <a href="/book/<?=$lastBookId?>">Accéder au dernier livre consulté sur le site</a>
+                <a href="/book/<?=$lastBookId?>" class="button">Accéder au dernier livre consulté sur le site</a>
             <?php endif; ?>
             <a href="https://www.cyu.fr/" target="_blank" title="CY Cergy Paris Université - S'ouvre dans un nouvel onglet">
                 <img src="/images/logo_cy.png" alt="Logo de CY Cergy Paris Université"/>
