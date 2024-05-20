@@ -2,7 +2,7 @@
   "name": "vendor_name/too-long-to-read",
   "description": "Too Long To Read est un site web de recherche de livres",
   "minimum-stability": "stable",
-  "homepage": "https:/github.com/gzirysz/too-long-to-read",
+  "homepage": "https://github.com/gzirysz/too-long-to-read",
   "license": "MIT",
   "authors": [
     {
