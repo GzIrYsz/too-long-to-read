@@ -6,7 +6,6 @@ use App\Controller\BookController;
 use App\Controller\HomeController;
 use App\Controller\StatsController;
 use App\Controller\SearchController;
-use App\Controller\TeamController;
 use App\Controller\TechController;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -14,9 +13,6 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
 
 $app = AppFactory::create();
 
