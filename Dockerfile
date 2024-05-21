@@ -15,7 +15,7 @@ COPY --from=composer/composer:2.7-bin /composer /usr/bin/composer
 COPY composer.json composer.lock ./
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install
 
-FROM base as runner
+FROM base AS runner
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 WORKDIR /too-long-to-read
 
