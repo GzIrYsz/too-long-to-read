@@ -13,8 +13,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class BookController extends AbstractController {
     public function index(Request $req, Response $res, array $args): Response {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-        $dotenv->safeLoad();
+        //$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+        //$dotenv->safeLoad();
         $client = new Client();
         $client->setApplicationName("Too Long To Read");
         $client->setDeveloperKey(getenv('GOOGLEAPI_TOKEN'));

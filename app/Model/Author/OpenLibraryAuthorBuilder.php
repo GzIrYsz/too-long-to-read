@@ -58,8 +58,8 @@ class OpenLibraryAuthorBuilder extends AbstractAuthorBuilder {
     }
 
     public function makeTrendyBooks(): AbstractAuthorBuilder {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
-        $dotenv->load();
+        //$dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
+        //$dotenv->load();
 
         $client = new Client();
         $client->setApplicationName("Too Long To Read");

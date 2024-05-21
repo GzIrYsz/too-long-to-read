@@ -11,8 +11,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class TechController extends AbstractController {
 
     public function index(Request $req, Response $res, array $args): Response {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-        $dotenv->safeLoad();
+        //$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+        //$dotenv->safeLoad();
         $nasa = new Nasa($_ENV['NASA_TOKEN']);
         $result = $nasa->getApod()->getBody()->getContents();
         $apod = json_decode($result);
