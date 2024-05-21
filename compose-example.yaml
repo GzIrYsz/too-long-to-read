@@ -1,0 +1,8 @@
+services:
+  tltr:
+    image: ghcr.io/gzirysz/too-long-to-read:latest
+    container_name: too-long-to-read
+    ports:
+      - "80:80"
+    environment:
+      GOOGLEAPI_TOKEN: 'your_token'
